@@ -2,7 +2,7 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { execSync, spawn } from 'child_process';
 import { randomBytes } from 'crypto';
-import { networkInterfaces } from 'os';
+import { networkInterfaces, homedir } from 'os';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -66,7 +66,7 @@ try {
 // 2. Cek folder data (di CWD, biar tiap folder punya config sendiri)
 log('');
 log(`${BOLD}[2/4]${RESET} Preparing folders...`);
-for (const dir of ['data', 'data/backups']) {
+for (const dir of [join(HOME_DIR, 'data'), join(HOME_DIR, 'data/backups')]) {
   const full = join(CWD, dir);
   if (!existsSync(full)) mkdirSync(full, { recursive: true });
 }
@@ -75,7 +75,9 @@ ok('data/, data/backups/');
 // 3. Cek loka.json (di CWD)
 log('');
 log(`${BOLD}[3/4]${RESET} Checking config...`);
-const CFG_PATH = join(CWD, 'loka.json');
+const HOME_DIR = join(homedir(), '.config', 'loka');
+if (!existsSync(HOME_DIR)) mkdirSync(HOME_DIR, { recursive: true });
+const CFG_PATH = join(HOME_DIR, 'loka.json');
 
 if (!existsSync(CFG_PATH)) {
   warn('loka.json tidak ada  bikin default...');

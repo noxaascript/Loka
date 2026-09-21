@@ -1,0 +1,11 @@
+node_modules/
+data/logs.ndjson
+data/cache.json
+data/stats.json
+data/backups/
+bin/
+.env
+*.loka-backup-*
+*.tgz
+loka.json.bak
+.DS_Store

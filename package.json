@@ -1,0 +1,47 @@
+{
+  "name": "loka-ai-router",
+  "version": "0.0.0-beta",
+  "type": "module",
+  "description": "AI router lokal  OAuth + API key untuk semua provider AI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "setup": "node setup.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "loka": "./setup.mjs"
+  },
+  "files": [
+    "index.js",
+    "setup.mjs",
+    "start.bat",
+    "loka.json",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai",
+    "router",
+    "openai",
+    "anthropic",
+    "oauth",
+    "llm",
+    "proxy",
+    "gateway"
+  ],
+  "author": "noxaascript",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noxaascript/Loka.git"
+  },
+  "homepage": "https://github.com/noxaascript/Loka",
+  "bugs": {
+    "url": "https://github.com/noxaascript/Loka/issues"
+  }
+}

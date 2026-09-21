@@ -1,0 +1,395 @@
+{
+  "port": 1455,
+  "host": "0.0.0.0",
+  "cooldownMs": 60000,
+  "maxRetries": 2,
+  "requestTimeoutMs": 60000,
+  "logLevel": "error",
+  "cache": {
+    "enabled": true,
+    "ttlMs": 300000,
+    "maxEntries": 500
+  },
+  "rateLimit": {
+    "enabled": true,
+    "windowMs": 60000,
+    "maxRequests": 120
+  },
+  "rtk": {
+    "enabled": true,
+    "maxDiffLines": 200,
+    "maxGrepResults": 100
+  },
+  "clients": [
+    {
+      "name": "default",
+      "key": "sk-K80qK_Bx-JnFy4k-y6xiucsFhjXtqq5iOYNFferjO_g",
+      "tier": "unlimited"
+    }
+  ],
+  "combos": {
+    "fast": [
+      "groq/llama-3.3-70b-versatile"
+    ],
+    "smart": [
+      "openai/gpt-5.2",
+      "anthropic/claude-sonnet-4-5-20250929"
+    ],
+    "cheap": [
+      "deepseek/deepseek-chat",
+      "groq/llama-3.1-8b-instant"
+    ],
+    "coding": [
+      "anthropic/claude-sonnet-4-5-20250929",
+      "openai/gpt-5.2-codex",
+      "deepseek/deepseek-chat"
+    ],
+    "free-oauth": [
+      "google-gemini-cli/gemini-2.5-flash"
+    ]
+  },
+  "providers": [
+    {
+      "id": "anthropic-oauth",
+      "type": "anthropic-oauth",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "apiKeys": [
+        "GANTI_KEY_ANTHROPIC-OAUTH"
+      ],
+      "models": [
+        "claude-opus-4-5-20251101",
+        "claude-sonnet-4-5-20250929",
+        "claude-haiku-4-5-20251001"
+      ],
+      "weight": 5,
+      "tags": [
+        "oauth",
+        "smart"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "openai-codex",
+      "type": "openai-codex",
+      "baseUrl": "https://chatgpt.com/backend-api/codex",
+      "apiKeys": [
+        "GANTI_KEY_OPENAI-CODEX"
+      ],
+      "models": [
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-5.6-luna",
+        "gpt-5.5",
+        "gpt-5.4",
+        "gpt-5.4-mini"
+      ],
+      "weight": 5,
+      "tags": [
+        "oauth",
+        "smart"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "github-copilot",
+      "type": "github-copilot",
+      "baseUrl": "https://api.githubcopilot.com",
+      "apiKeys": [
+        "GANTI_KEY_GITHUB-COPILOT"
+      ],
+      "models": [
+        "gpt-5",
+        "claude-sonnet-4-5",
+        "gemini-2.5-pro"
+      ],
+      "weight": 8,
+      "tags": [
+        "oauth",
+        "free"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "google-gemini-cli",
+      "type": "google-gemini-cli",
+      "baseUrl": "https://cloudcode-pa.googleapis.com",
+      "apiKeys": [
+        "GANTI_KEY_GOOGLE-GEMINI-CLI"
+      ],
+      "models": [
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash-lite"
+      ],
+      "weight": 10,
+      "tags": [
+        "oauth",
+        "free"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "groq",
+      "type": "openai",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "apiKeys": [
+        "gsk-GANTI_KEY_GROQ"
+      ],
+      "models": [
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b",
+        "qwen/qwen3-32b",
+        "moonshotai/kimi-k2-instruct"
+      ],
+      "weight": 15,
+      "tags": [
+        "fast",
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "xkiro",
+      "type": "openai",
+      "baseUrl": "https://api.xkiro.com/v1",
+      "apiKeys": [
+        "sk-GANTI_KEY"
+      ],
+      "models": [
+        "qwen/qwen3.8-max",
+        "qwen/qwen3.7-max",
+        "qwen/qwen3.6-27b:free",
+        "deepseek/deepseek-v4-pro",
+        "deepseek/deepseek-v4-flash",
+        "z-ai/glm-5.3-flash",
+        "minimax/minimax-m2.5",
+        "mistral/mistral-large-latest"
+      ],
+      "weight": 14,
+      "tags": [
+        "free-tier",
+        "apikey",
+        "gateway"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "xai",
+      "type": "openai",
+      "baseUrl": "https://api.x.ai/v1",
+      "apiKeys": [
+        "xai-GANTI_KEY_XAI"
+      ],
+      "models": [
+        "grok-4.3",
+        "grok-4.20-0309-reasoning",
+        "grok-4.20-0309-non-reasoning",
+        "grok-3-mini"
+      ],
+      "weight": 10,
+      "tags": [
+        "apikey",
+        "smart"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "deepseek",
+      "type": "openai",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "apiKeys": [
+        "sk-GANTI_KEY",
+        "sk-GANTI_KEY",
+        "sk-GANTI_KEY"
+      ],
+      "models": [
+        "deepseek-chat",
+        "deepseek-reasoner"
+      ],
+      "weight": 12,
+      "tags": [
+        "cheap",
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "mistral",
+      "type": "openai",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "apiKeys": [
+        "GANTI_KEY_MISTRAL"
+      ],
+      "models": [
+        "mistral-large-latest",
+        "mistral-medium-latest",
+        "mistral-small-latest",
+        "codestral-latest",
+        "open-mistral-nemo"
+      ],
+      "weight": 18,
+      "tags": [
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "openrouter",
+      "type": "openai",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "apiKeys": [
+        "sk-or-GANTI_KEY_OPENROUTER"
+      ],
+      "models": [
+        "anthropic/claude-sonnet-4.5",
+        "anthropic/claude-opus-4.1",
+        "openai/gpt-5.2",
+        "google/gemini-2.5-pro",
+        "deepseek/deepseek-chat-v3.1",
+        "x-ai/grok-4.3",
+        "meta-llama/llama-3.3-70b-instruct",
+        "qwen/qwen3-235b-a22b"
+      ],
+      "weight": 20,
+      "tags": [
+        "apikey",
+        "many-models"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "together",
+      "type": "openai",
+      "baseUrl": "https://api.together.xyz/v1",
+      "apiKeys": [
+        "GANTI_KEY_TOGETHER"
+      ],
+      "models": [
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+        "Qwen/Qwen2.5-72B-Instruct-Turbo",
+        "deepseek-ai/DeepSeek-V3",
+        "deepseek-ai/DeepSeek-R1"
+      ],
+      "weight": 22,
+      "tags": [
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "fireworks",
+      "type": "openai",
+      "baseUrl": "https://api.fireworks.ai/inference/v1",
+      "apiKeys": [
+        "GANTI_KEY_FIREWORKS"
+      ],
+      "models": [
+        "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "accounts/fireworks/models/deepseek-v3",
+        "accounts/fireworks/models/qwen3-235b-a22b"
+      ],
+      "weight": 23,
+      "tags": [
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "perplexity",
+      "type": "openai",
+      "baseUrl": "https://api.perplexity.ai",
+      "apiKeys": [
+        "pplx-GANTI_KEY"
+      ],
+      "models": [
+        "sonar-pro",
+        "sonar",
+        "sonar-reasoning-pro",
+        "sonar-reasoning"
+      ],
+      "weight": 25,
+      "tags": [
+        "apikey",
+        "web-search"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "cerebras",
+      "type": "openai",
+      "baseUrl": "https://api.cerebras.ai/v1",
+      "apiKeys": [
+        "csk-GANTI_KEY"
+      ],
+      "models": [
+        "llama-3.3-70b",
+        "llama3.1-8b",
+        "qwen-3-235b-a22b-instruct-2507"
+      ],
+      "weight": 26,
+      "tags": [
+        "apikey",
+        "fast"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "hyperbolic",
+      "type": "openai",
+      "baseUrl": "https://api.hyperbolic.xyz/v1",
+      "apiKeys": [
+        "GANTI_KEY_HYPERBOLIC"
+      ],
+      "models": [
+        "meta-llama/Llama-3.3-70B-Instruct",
+        "Qwen/Qwen2.5-72B-Instruct",
+        "deepseek-ai/DeepSeek-V3"
+      ],
+      "weight": 28,
+      "tags": [
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "novita",
+      "type": "openai",
+      "baseUrl": "https://api.novita.ai/v3/openai",
+      "apiKeys": [
+        "sk-GANTI_KEY"
+      ],
+      "models": [
+        "meta-llama/llama-3.3-70b-instruct",
+        "deepseek/deepseek-v3",
+        "qwen/qwen-2.5-72b-instruct"
+      ],
+      "weight": 30,
+      "tags": [
+        "apikey"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "ollama",
+      "type": "openai",
+      "baseUrl": "http://localhost:11434/v1",
+      "apiKeys": [
+        "GANTI_KEY_OLLAMA"
+      ],
+      "models": [
+        "llama3.2",
+        "qwen2.5",
+        "deepseek-r1"
+      ],
+      "weight": 99,
+      "tags": [
+        "local",
+        "free"
+      ],
+      "status": "pending"
+    }
+  ]
+}

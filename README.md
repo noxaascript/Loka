@@ -29,92 +29,96 @@ Loka is a local AI router that unifies OpenAI, Anthropic, Gemini, Groq, DeepSeek
 
 ```bash
 npm install -g loka-ai-router
+```
 
 Or without installing:
 
-bash
+```bash
 npx loka-ai-router
-Run
-bash
+```
+
+### Run
+
+```bash
 loka
+```
+
 Open http://localhost:1455 in your browser.
 
-First-time setup
-Open the Providers page
+### First-time setup
 
-OAuth Providers — click a provider → Connect OAuth (log in once, done)
+- Open the Providers page
+- **OAuth Providers** — click a provider → Connect OAuth (log in once, done)
+- **Regular Providers** — click a provider → Add API Key → paste key from the provider console
+- Click **Test** on a model to verify
 
-Regular Providers — click a provider → Add API Key → paste key from the provider console
+### Use in other apps
 
-Click Test on a model to verify
+- **Base URL:** <http://localhost:1455/v1>
+- **API Key:** from the **API Keys** page in the dashboard
+- **Model:** pick from the list on the Providers page
 
-Use in other apps
-Base URL: http://localhost:1455/v1
+## 📋 Providers
 
-API Key: from the API Keys page in the dashboard
+### OAuth (browser login)
 
-Model: pick from the list on the Providers page
+| Provider | Models |
+|---|---|
+| OpenAI Codex | gpt-5.6, gpt-5.5, gpt-5.4 |
+| Anthropic | claude-opus-4-5, claude-sonnet-4-5 |
+| Google Gemini CLI | gemini-2.5-pro, gemini-2.5-flash |
+| GitHub Copilot | gpt-5, claude-sonnet-4-5 |
 
-📋 Providers
-OAuth (browser login)
-Provider	Models
-OpenAI Codex	gpt-5.6, gpt-5.5, gpt-5.4
-Anthropic	claude-opus-4-5, claude-sonnet-4-5
-Google Gemini CLI	gemini-2.5-pro, gemini-2.5-flash
-GitHub Copilot	gpt-5, claude-sonnet-4-5
-API Key
-Provider	Get key at
-Groq	console.groq.com/keys
-xAI	console.x.ai
-DeepSeek	platform.deepseek.com
-Mistral	console.mistral.ai
-OpenRouter	openrouter.ai/keys
-Together	api.together.ai
-Fireworks	fireworks.ai
-Perplexity	perplexity.ai
-Cerebras	cloud.cerebras.ai
-xKiro	xkiro.com
-Ollama	Local, free, no key needed
-All API key providers support Import Models — fetch the full model list automatically.
+### API Key
 
-🔌 CLI Connector
-The CLI Connector page detects AI CLIs installed on your machine and writes their config automatically.
+| Provider | Get key at |
+|---|---|
+| Groq | <console.groq.com/keys> |
+| xAI | <console.x.ai> |
+| DeepSeek | <platform.deepseek.com> |
+| Mistral | <console.mistral.ai> |
+| OpenRouter | <openrouter.ai/keys> |
+| Together | <api.together.ai> |
+| Fireworks | <fireworks.ai> |
+| Perplexity | <perplexity.ai> |
+| Cerebras | <cloud.cerebras.ai> |
+| xKiro | <xkiro.com> |
+| Ollama | Local, free, no key needed |
+
+All API key providers support **Import Models** — fetch the full model list automatically.
+
+## 🔌 CLI Connector
+
+The **CLI Connector** page detects AI CLIs installed on your machine and writes their config automatically.
 
 Supported:
 
-Claude Code
-
-Codex CLI
-
-OpenCode
-
-Gemini CLI
+- Claude Code
+- Codex CLI
+- OpenCode
+- Gemini CLI
 
 How to use:
 
-Install the CLI first (guide shown automatically if not installed)
+1. Install the CLI first (guide shown automatically if not installed)
+2. Open `/cli` in the dashboard
+3. Click **Configure for Loka**
+4. Pick endpoint, model, or combo
+5. Done — the CLI now points to Loka
 
-Open /cli in the dashboard
+## 🌐 Tunnel
 
-Click Configure for Loka
-
-Pick endpoint, model, or combo
-
-Done — the CLI now points to Loka
-
-🌐 Tunnel
 The Tunnel page exposes Loka to the internet without opening your router:
 
-Local Network — access from another device on the same WiFi
+- **Local Network** — access from another device on the same WiFi
+- **Cloudflare Tunnel** — free public HTTPS URL, one-click setup
+- **Ngrok** — alternative, requires an account
 
-Cloudflare Tunnel — free public HTTPS URL, one-click setup
+## ⚙️ Configuration
 
-Ngrok — alternative, requires an account
+Everything lives in `loka.json`:
 
-⚙️ Configuration
-Everything lives in loka.json:
-
-json
+```json
 {
   "port": 1455,
   "host": "0.0.0.0",
@@ -124,18 +128,24 @@ json
   "cache": { "enabled": true, "ttlMs": 300000 },
   "rateLimit": { "enabled": true, "maxRequests": 120 }
 }
-Edit via the Settings page in the dashboard, or edit the file directly.
+```
 
-🛠️ Development
-bash
+Edit via the **Settings** page in the dashboard, or edit the file directly.
+
+## 🛠️ Development
+
+```bash
 git clone https://github.com/noxaascript/Loka.git
 cd Loka
 npm install
 npm run dev
+```
+
 Open http://localhost:1455.
 
-📄 Structure
-text
+## 📄 Structure
+
+```text
 loka/
 ├── index.js              # Entry point
 ├── setup.mjs             # Installer + launcher
@@ -150,24 +160,25 @@ loka/
 │   ├── tools/            # RTK, compactor
 │   └── ui/               # Dashboard pages
 └── data/                 # Logs, stats, cache
-⚠️ Notes
-Anthropic OAuth — uses your Claude Pro/Max subscription. Using it outside Claude Code violates Anthropic's ToS. Use at your own risk.
+```
 
-Codex OAuth — requires a ChatGPT Plus/Pro account.
+## ⚠️ Notes
 
-xAI OAuth — blocked by Cloudflare for bare HTTP. Use an API key instead.
+- **Anthropic OAuth** — uses your Claude Pro/Max subscription. Using it outside Claude Code violates Anthropic's ToS. Use at your own risk.
+- **Codex OAuth** — requires a ChatGPT Plus/Pro account.
+- **xAI OAuth** — blocked by Cloudflare for bare HTTP. Use an API key instead.
+- **RTK** — works out of the box, but shines when you use tool calling.
 
-RTK — works out of the box, but shines when you use tool calling.
+## 🤝 Contributing
 
-🤝 Contributing
-PRs, issues, and feedback are welcome. Open an issue at GitHub or fork the repo.
+PRs, issues, and feedback are welcome. Open an issue at [GitHub](https://github.com/noxaascript/Loka/issues) or fork the repo.
 
-📜 License
+## 📜 License
+
 MIT © 2026 Loka Contributors
 
-🌟 Credits
-Icon set: lobe-icons
+## 🌟 Credits
 
-Cloudflare Tunnel: cloudflared
-
-Provider API references from the open-source community
+- Icon set: [lobe-icons](https://github.com/lobehub/lobe-icons)
+- Cloudflare Tunnel: [cloudflared](https://github.com/cloudflare/cloudflared)
+- Provider API references from the open-source community

@@ -29,92 +29,96 @@ Loka es un enrutador de IA local que unifica OpenAI, Anthropic, Gemini, Groq, De
 
 ```bash
 npm install -g loka-ai-router
+```
 
 O sin instalar:
 
-bash
+```bash
 npx loka-ai-router
-Ejecutar
-bash
+```
+
+### Ejecutar
+
+```bash
 loka
+```
+
 Abre http://localhost:1455 en tu navegador.
 
-Configuración inicial
-Abre la página Providers
+### Configuración inicial
 
-OAuth Providers — haz clic en un proveedor → Connect OAuth (inicia sesión una vez, listo)
+- Abre la página Providers
+- **OAuth Providers** — haz clic en un proveedor → Connect OAuth (inicia sesión una vez, listo)
+- **Regular Providers** — haz clic en un proveedor → Add API Key → pega la clave de la consola del proveedor
+- Haz clic en **Test** en un modelo para verificar
 
-Regular Providers — haz clic en un proveedor → Add API Key → pega la clave de la consola del proveedor
+### Usar en otras aplicaciones
 
-Haz clic en Test en un modelo para verificar
+- **Base URL:** <http://localhost:1455/v1>
+- **API Key:** desde la página API Keys en el panel
+- **Model:** elige de la lista en la página Providers
 
-Usar en otras aplicaciones
-Base URL: http://localhost:1455/v1
+## 📋 Proveedores
 
-API Key: desde la página API Keys en el panel
+### OAuth (inicio de sesión en el navegador)
 
-Model: elige de la lista en la página Providers
+| Proveedor | Modelos |
+|---|---|
+| OpenAI Codex | gpt-5.6, gpt-5.5, gpt-5.4 |
+| Anthropic | claude-opus-4-5, claude-sonnet-4-5 |
+| Google Gemini CLI | gemini-2.5-pro, gemini-2.5-flash |
+| GitHub Copilot | gpt-5, claude-sonnet-4-5 |
 
-📋 Proveedores
-OAuth (inicio de sesión en el navegador)
-Proveedor	Modelos
-OpenAI Codex	gpt-5.6, gpt-5.5, gpt-5.4
-Anthropic	claude-opus-4-5, claude-sonnet-4-5
-Google Gemini CLI	gemini-2.5-pro, gemini-2.5-flash
-GitHub Copilot	gpt-5, claude-sonnet-4-5
-Clave API
-Proveedor	Obtén la clave en
-Groq	console.groq.com/keys
-xAI	console.x.ai
-DeepSeek	platform.deepseek.com
-Mistral	console.mistral.ai
-OpenRouter	openrouter.ai/keys
-Together	api.together.ai
-Fireworks	fireworks.ai
-Perplexity	perplexity.ai
-Cerebras	cloud.cerebras.ai
-xKiro	xkiro.com
-Ollama	Local, gratis, sin clave
-Todos los proveedores con clave API admiten Import Models — descarga la lista completa de modelos automáticamente.
+### Clave API
 
-🔌 CLI Connector
+| Proveedor | Obtén la clave en |
+|---|---|
+| Groq | <console.groq.com/keys> |
+| xAI | <console.x.ai> |
+| DeepSeek | <platform.deepseek.com> |
+| Mistral | <console.mistral.ai> |
+| OpenRouter | <openrouter.ai/keys> |
+| Together | <api.together.ai> |
+| Fireworks | <fireworks.ai> |
+| Perplexity | <perplexity.ai> |
+| Cerebras | <cloud.cerebras.ai> |
+| xKiro | <xkiro.com> |
+| Ollama | Local, gratis, sin clave |
+
+Todos los proveedores con clave API admiten **Import Models** — descarga la lista completa de modelos automáticamente.
+
+## 🔌 CLI Connector
+
 La página CLI Connector detecta las CLI de IA instaladas en tu equipo y escribe su configuración automáticamente.
 
 Compatible con:
 
-Claude Code
-
-Codex CLI
-
-OpenCode
-
-Gemini CLI
+- Claude Code
+- Codex CLI
+- OpenCode
+- Gemini CLI
 
 Cómo usar:
 
-Instala primero la CLI (la guía aparece automáticamente si no está instalada)
+1. Instala primero la CLI (la guía aparece automáticamente si no está instalada)
+2. Abre `/cli` en el panel
+3. Haz clic en **Configure for Loka**
+4. Elige endpoint, modelo o combo
+5. Listo — la CLI ahora apunta a Loka
 
-Abre /cli en el panel
+## 🌐 Túnel
 
-Haz clic en Configure for Loka
-
-Elige endpoint, modelo o combo
-
-Listo — la CLI ahora apunta a Loka
-
-🌐 Túnel
 La página Tunnel expone Loka a internet sin abrir el router:
 
-Red local — acceso desde otro dispositivo en la misma WiFi
+- **Red local** — acceso desde otro dispositivo en la misma WiFi
+- **Cloudflare Tunnel** — URL pública HTTPS, gratis, configuración en un clic
+- **Ngrok** — alternativa, requiere cuenta
 
-Cloudflare Tunnel — URL pública HTTPS, gratis, configuración en un clic
+## ⚙️ Configuración
 
-Ngrok — alternativa, requiere cuenta
+Todo vive en `loka.json`:
 
-⚙️ Configuración
-Todo vive en loka.json:
-
-json
+```json
 {
   "port": 1455,
   "host": "0.0.0.0",
@@ -124,18 +128,24 @@ json
   "cache": { "enabled": true, "ttlMs": 300000 },
   "rateLimit": { "enabled": true, "maxRequests": 120 }
 }
+```
+
 Edita desde la página Settings en el panel, o edita el archivo directamente.
 
-🛠️ Desarrollo
-bash
+## 🛠️ Desarrollo
+
+```bash
 git clone https://github.com/noxaascript/Loka.git
 cd Loka
 npm install
 npm run dev
+```
+
 Abre http://localhost:1455.
 
-📄 Estructura
-text
+## 📄 Estructura
+
+```text
 loka/
 ├── index.js              # Punto de entrada
 ├── setup.mjs             # Instalador + lanzador
@@ -150,24 +160,25 @@ loka/
 │   ├── tools/            # RTK, compactor
 │   └── ui/               # Páginas del panel
 └── data/                 # Logs, estadísticas, caché
-⚠️ Notas
-OAuth de Anthropic — usa tu suscripción Claude Pro/Max. Usarlo fuera de Claude Code viola los ToS de Anthropic. Úsalo bajo tu propio riesgo.
+```
 
-OAuth de Codex — requiere una cuenta ChatGPT Plus/Pro.
+## ⚠️ Notas
 
-OAuth de xAI — bloqueado por Cloudflare para HTTP directo. Usa una clave API.
+- **OAuth de Anthropic** — usa tu suscripción Claude Pro/Max. Usarlo fuera de Claude Code viola los ToS de Anthropic. Úsalo bajo tu propio riesgo.
+- **OAuth de Codex** — requiere una cuenta ChatGPT Plus/Pro.
+- **OAuth de xAI** — bloqueado por Cloudflare para HTTP directo. Usa una clave API.
+- **RTK** — funciona sin configuración, pero brilla cuando usas tool calling.
 
-RTK — funciona sin configuración, pero brilla cuando usas tool calling.
+## 🤝 Contribuir
 
-🤝 Contribuir
-PRs, issues y feedback son bienvenidos. Abre un issue en GitHub o haz un fork del repositorio.
+PRs, issues y feedback son bienvenidos. Abre un issue en [GitHub](https://github.com/noxaascript/Loka/issues) o haz un fork del repositorio.
 
-📜 Licencia
+## 📜 Licencia
+
 MIT © 2026 Loka Contributors
 
-🌟 Créditos
-Iconos: lobe-icons
+## 🌟 Créditos
 
-Cloudflare Tunnel: cloudflared
-
-Referencias de API de proveedores de la comunidad open-source
+- Iconos: [lobe-icons](https://github.com/lobehub/lobe-icons)
+- Cloudflare Tunnel: [cloudflared](https://github.com/cloudflare/cloudflared)
+- Referencias de API de proveedores de la comunidad open-source

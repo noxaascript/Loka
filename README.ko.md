@@ -29,92 +29,96 @@ Loka는 OpenAI, Anthropic, Gemini, Groq, DeepSeek 및 15개 이상의 제공자�
 
 ```bash
 npm install -g loka-ai-router
+```
 
 설치 없이:
 
-bash
+```bash
 npx loka-ai-router
-실행
-bash
+```
+
+### 실행
+
+```bash
 loka
+```
+
 브라우저에서 http://localhost:1455 를 엽니다.
 
-최초 설정
-Providers 페이지 열기
+### 최초 설정
 
-OAuth Providers — 제공자 클릭 → Connect OAuth (한 번 로그인하면 끝)
+- Providers 페이지 열기
+- **OAuth Providers** — 제공자 클릭 → Connect OAuth (한 번 로그인하면 끝)
+- **Regular Providers** — 제공자 클릭 → Add API Key → 제공자 콘솔에서 복사한 키 붙여넣기
+- 모델에서 **Test** 클릭하여 확인
 
-Regular Providers — 제공자 클릭 → Add API Key → 제공자 콘솔에서 복사한 키 붙여넣기
+### 다른 앱에서 사용
 
-모델에서 Test 클릭하여 확인
+- **Base URL:** <http://localhost:1455/v1>
+- **API Key:** 대시보드의 API Keys 페이지에서 확인
+- **Model:** Providers 페이지의 목록에서 선택
 
-다른 앱에서 사용
-Base URL: http://localhost:1455/v1
+## 📋 제공자 목록
 
-API Key: 대시보드의 API Keys 페이지에서 확인
+### OAuth (브라우저 로그인)
 
-Model: Providers 페이지의 목록에서 선택
+| 제공자 | 모델 |
+|---|---|
+| OpenAI Codex | gpt-5.6, gpt-5.5, gpt-5.4 |
+| Anthropic | claude-opus-4-5, claude-sonnet-4-5 |
+| Google Gemini CLI | gemini-2.5-pro, gemini-2.5-flash |
+| GitHub Copilot | gpt-5, claude-sonnet-4-5 |
 
-📋 제공자 목록
-OAuth (브라우저 로그인)
-제공자	모델
-OpenAI Codex	gpt-5.6, gpt-5.5, gpt-5.4
-Anthropic	claude-opus-4-5, claude-sonnet-4-5
-Google Gemini CLI	gemini-2.5-pro, gemini-2.5-flash
-GitHub Copilot	gpt-5, claude-sonnet-4-5
-API 키
-제공자	키 발급
-Groq	console.groq.com/keys
-xAI	console.x.ai
-DeepSeek	platform.deepseek.com
-Mistral	console.mistral.ai
-OpenRouter	openrouter.ai/keys
-Together	api.together.ai
-Fireworks	fireworks.ai
-Perplexity	perplexity.ai
-Cerebras	cloud.cerebras.ai
-xKiro	xkiro.com
-Ollama	로컬, 무료, 키 불필요
-모든 API 키 제공자는 Import Models 를 지원합니다 — 전체 모델 목록을 자동으로 가져옵니다.
+### API 키
 
-🔌 CLI Connector
+| 제공자 | 키 발급 |
+|---|---|
+| Groq | <console.groq.com/keys> |
+| xAI | <console.x.ai> |
+| DeepSeek | <platform.deepseek.com> |
+| Mistral | <console.mistral.ai> |
+| OpenRouter | <openrouter.ai/keys> |
+| Together | <api.together.ai> |
+| Fireworks | <fireworks.ai> |
+| Perplexity | <perplexity.ai> |
+| Cerebras | <cloud.cerebras.ai> |
+| xKiro | <xkiro.com> |
+| Ollama | 로컬, 무료, 키 불필요 |
+
+모든 API 키 제공자는 **Import Models** 를 지원합니다 — 전체 모델 목록을 자동으로 가져옵니다.
+
+## 🔌 CLI Connector
+
 CLI Connector 페이지는 컴퓨터에 설치된 AI CLI를 감지하고 자동으로 설정을 작성합니다.
 
 지원:
 
-Claude Code
-
-Codex CLI
-
-OpenCode
-
-Gemini CLI
+- Claude Code
+- Codex CLI
+- OpenCode
+- Gemini CLI
 
 사용법:
 
-먼저 CLI 설치 (설치되지 않은 경우 가이드가 자동으로 표시됨)
+1. 먼저 CLI 설치 (설치되지 않은 경우 가이드가 자동으로 표시됨)
+2. 대시보드에서 `/cli` 열기
+3. **Configure for Loka** 클릭
+4. 엔드포인트, 모델 또는 콤보 선택
+5. 완료 — CLI가 이제 Loka를 가리킵니다
 
-대시보드에서 /cli 열기
+## 🌐 터널
 
-Configure for Loka 클릭
-
-엔드포인트, 모델 또는 콤보 선택
-
-완료 — CLI가 이제 Loka를 가리킵니다
-
-🌐 터널
 Tunnel 페이지는 라우터를 열지 않고 Loka를 인터넷에 노출합니다:
 
-로컬 네트워크 — 같은 WiFi의 다른 기기에서 접근
+- **로컬 네트워크** — 같은 WiFi의 다른 기기에서 접근
+- **Cloudflare Tunnel** — 무료 공개 HTTPS URL, 원클릭 설정
+- **Ngrok** — 대안, 계정 필요
 
-Cloudflare Tunnel — 무료 공개 HTTPS URL, 원클릭 설정
+## ⚙️ 설정
 
-Ngrok — 대안, 계정 필요
+모든 설정은 `loka.json` 에 있습니다:
 
-⚙️ 설정
-모든 설정은 loka.json 에 있습니다:
-
-json
+```json
 {
   "port": 1455,
   "host": "0.0.0.0",
@@ -124,18 +128,24 @@ json
   "cache": { "enabled": true, "ttlMs": 300000 },
   "rateLimit": { "enabled": true, "maxRequests": 120 }
 }
+```
+
 대시보드의 Settings 페이지에서 편집하거나 파일을 직접 편집합니다.
 
-🛠️ 개발
-bash
+## 🛠️ 개발
+
+```bash
 git clone https://github.com/noxaascript/Loka.git
 cd Loka
 npm install
 npm run dev
+```
+
 http://localhost:1455 를 엽니다.
 
-📄 구조
-text
+## 📄 구조
+
+```text
 loka/
 ├── index.js              # 진입점
 ├── setup.mjs             # 설치 프로그램 + 런처
@@ -150,24 +160,25 @@ loka/
 │   ├── tools/            # RTK, 컴팩터
 │   └── ui/               # 대시보드 페이지
 └── data/                 # 로그, 통계, 캐시
-⚠️ 주의사항
-Anthropic OAuth — Claude Pro/Max 구독을 사용합니다. Claude Code 외부에서 사용하면 Anthropic의 ToS를 위반합니다. 본인 책임하에 사용하세요.
+```
 
-Codex OAuth — ChatGPT Plus/Pro 계정이 필요합니다.
+## ⚠️ 주의사항
 
-xAI OAuth — 일반 HTTP는 Cloudflare에 의해 차단됩니다. API 키를 사용하세요.
+- **Anthropic OAuth** — Claude Pro/Max 구독을 사용합니다. Claude Code 외부에서 사용하면 Anthropic의 ToS를 위반합니다. 본인 책임하에 사용하세요.
+- **Codex OAuth** — ChatGPT Plus/Pro 계정이 필요합니다.
+- **xAI OAuth** — 일반 HTTP는 Cloudflare에 의해 차단됩니다. API 키를 사용하세요.
+- **RTK** — 별도 설정 없이 작동하지만, tool calling과 함께 사용할 때 진가를 발휘합니다.
 
-RTK — 별도 설정 없이 작동하지만, tool calling과 함께 사용할 때 진가를 발휘합니다.
+## 🤝 기여
 
-🤝 기여
-PR, 이슈, 피드백을 환영합니다. GitHub 에 이슈를 열거나 저장소를 포크하세요.
+PR, 이슈, 피드백을 환영합니다. [GitHub](https://github.com/noxaascript/Loka/issues) 에 이슈를 열거나 저장소를 포크하세요.
 
-📜 라이선스
+## 📜 라이선스
+
 MIT © 2026 Loka Contributors
 
-🌟 크레딧
-아이콘 세트: lobe-icons
+## 🌟 크레딧
 
-Cloudflare Tunnel: cloudflared
-
-제공자 API 참고자료는 오픈소스 커뮤니티에서 가져왔습니다
+- 아이콘 세트: [lobe-icons](https://github.com/lobehub/lobe-icons)
+- Cloudflare Tunnel: [cloudflared](https://github.com/cloudflare/cloudflared)
+- 제공자 API 참고자료는 오픈소스 커뮤니티에서 가져왔습니다

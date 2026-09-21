@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { execSync, spawn } from 'child_process';
 import { randomBytes } from 'crypto';

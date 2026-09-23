@@ -1,13 +1,14 @@
 {
   "name": "loka-ai-router",
-  "version": "0.0.0-alpha.2026dev0923.2733e17",
+  "version": "0.0.0-alpha.2026dev0923.4e0f217",
   "type": "module",
   "description": "AI router lokal  OAuth + API key untuk semua provider AI",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "setup": "node setup.mjs"
+    "setup": "node setup.mjs",
+    "postinstall": "node scripts/postinstall.mjs"
   },
   "engines": {
     "node": ">=20"
@@ -19,8 +20,10 @@
     "index.js",
     "setup.mjs",
     "start.bat",
+    "start.sh",
     "loka.json",
     "lib/",
+    "scripts/",
     "README.md",
     "LICENSE"
   ],

@@ -1,11 +1,12 @@
 node_modules/
-data/logs.ndjson
-data/cache.json
-data/stats.json
-data/backups/
+data/
 bin/
 .env
 *.loka-backup-*
 *.tgz
+*.bak
 loka.json.bak
-.DS_Store
+fix*.cjs
+patch*.cjs
+add-*.cjs
+gen-*.cjs

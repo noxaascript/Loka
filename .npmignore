@@ -1,0 +1,53 @@
+﻿# Local config & secrets
+loka.json
+loka.json.*
+!loka.example.json
+data/
+.env
+.env.*
+*.bak
+*.combos-backup*
+log-startup.txt
+
+# Dev & build
+.git/
+.github/
+.gitignore
+.npmignore
+tools/
+retry-icons.cjs
+scan-all.cjs
+download-icons.cjs
+enable-codex-auth.bat
+start.bat
+VENDOR_LICENSES.md
+CHANGELOG.md
+
+# Vendor berat (caveman)
+vendor/caveman/.git/
+vendor/caveman/.github/
+vendor/caveman/docs/
+vendor/caveman/benchmarks/
+vendor/caveman/evals/
+vendor/caveman/extension/
+vendor/caveman/deploy/
+vendor/caveman/tests/
+vendor/caveman/tools/
+vendor/caveman/browse/testdata/
+vendor/caveman/browse/tests/
+vendor/caveman/browse/scripts/
+vendor/caveman/mcp/tests/
+vendor/caveman/mcp/testdata/
+vendor/caveman/mem/py/tests/
+vendor/caveman/mem/js/tests/
+vendor/caveman/packages/*/tests/
+vendor/caveman/packages/*/testdata/
+vendor/caveman/shared/provider-catalog/tests/
+
+# Binaries (di-download via postinstall)
+dist/binaries/
+vendor/rtk/bin/
+
+# OS
+.DS_Store
+Thumbs.db

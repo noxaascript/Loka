@@ -27,7 +27,42 @@
       "tier": "unlimited"
     }
   ],
-  "combos": {},
+  "combos": {
+    "tgth": [
+      "xkiro/meituan/longcat-2.0",
+      "xkiro/meta/muse-spark-1.2-contributor",
+      "xkiro/minimax/minimax-m2.1-highspeed:free",
+      "xkiro/minimax/minimax-m2.1:free",
+      "xkiro/minimax/minimax-m2.5",
+      "xkiro/minimax/minimax-m2.5-highspeed:free",
+      "xkiro/minimax/minimax-m2.5:free",
+      "xkiro/minimax/minimax-m2.7",
+      "xkiro/minimax/minimax-m2.7-highspeed:free",
+      "xkiro/minimax/minimax-m2.7:free",
+      "xkiro/minimax/minimax-m2:free",
+      "xkiro/minimax/minimax-m3",
+      "xkiro/qwen/qwen3.5-397b-a17b:free",
+      "xkiro/qwen/qwen3-vl-plus:free",
+      "xkiro/qwen/qwen3-omni-flash:free",
+      "xkiro/qwen/qwen3-max:free",
+      "xkiro/qwen/qwen3-coder-plus:free",
+      "xkiro/qwen/qwen-plus-2025-07-28:free",
+      "xkiro/moonshotai/kimi-k3",
+      "xkiro/moonshotai/kimi-k2.7-code",
+      "xkiro/moonshotai/kimi-k2.6",
+      "xkiro/moonshotai/kimi-k2.5",
+      "xkiro/mistralai/mistral-small-2603",
+      "xkiro/mistralai/mistral-medium-3.5",
+      "xkiro/mistralai/mistral-large-2512",
+      "xkiro/x-ai/grok-build-0.1",
+      "xkiro/x-ai/grok-4.5",
+      "xkiro/tencent/hy4-preview",
+      "xkiro/sensenova/sensenova-6.8-flash-lite",
+      "xkiro/sensenova/sensenova-6.7-flash-lite",
+      "xkiro/qwen/qwen3.8-omni-flash:free",
+      "xkiro/tencent/hy3"
+    ]
+  },
   "providers": [
     {
       "id": "anthropic-oauth",
@@ -371,5 +406,12 @@
       ],
       "status": "pending"
     }
-  ]
+  ],
+  "tokenSaver": {
+    "caveman": {
+      "enabled": false,
+      "mode": "full",
+      "thinkMode": "compress"
+    }
+  }
 }

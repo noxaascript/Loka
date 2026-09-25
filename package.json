@@ -1,6 +1,6 @@
 {
   "name": "loka-ai-router",
-  "version": "0.0.0-beta.20260924.848958c",
+  "version": "0.0.0-beta.20260925.3f6fd93",
   "type": "module",
   "description": "AI router lokal  OAuth + API key untuk semua provider AI",
   "main": "index.js",

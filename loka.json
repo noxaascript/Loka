@@ -448,6 +448,29 @@
         "free"
       ],
       "status": "pending"
+    },
+    {
+      "id": "opencode-zen",
+      "type": "opencode-zen",
+      "baseUrl": "https://opencode.ai/zen/v1",
+      "apiKeys": [
+        "public"
+      ],
+      "models": [
+        "big-pickle",
+        "mimo-v2.6-flash-free",
+        "deepseek-v4-flash-free",
+        "kimi-k2.7-code",
+        "glm-5.2",
+        "minimax-m2.5"
+      ],
+      "weight": 15,
+      "tags": [
+        "free",
+        "free-tier",
+        "coding"
+      ],
+      "status": "pending"
     }
   ],
   "autoTunnel": true

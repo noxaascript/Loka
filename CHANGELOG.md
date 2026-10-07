@@ -7,6 +7,17 @@ Versioning: `0.0.0-beta.YYYYMMDD.hash`
 
 ---
 
+## v0.1.5-latest.20261007.d6e3216  2026-10-07
+
+###  Features
+
+- SIGNAL ROOM ui redesign, bughunt, version format, nav icons ([d6e3216](commit/d6e3216))
+
+###  Chores
+
+- pre-publish ([fd08b17](commit/fd08b17))
+- pre-publish ([8fdcdb2](commit/8fdcdb2))
+
 ## [0.0.0-beta.20260924] — 2026-09-24
 
 ### Added
